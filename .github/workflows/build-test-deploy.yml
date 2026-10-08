@@ -35,14 +35,16 @@ jobs:
           dotnet-version: '6.0.x'
 
       - name: Restore dependencies
-        run: dotnet restore
+        run: dotnet restore WebApplication02.Tests/WebApplication02.Tests.csproj
 
       - name: Build application
-        run: dotnet build --no-restore --configuration Release
+        run: dotnet build WebApplication02.csproj --no-restore --configuration Release
+
+      - name: Build tests
+        run: dotnet build WebApplication02.Tests/WebApplication02.Tests.csproj --no-restore --configuration Release
 
       - name: Run tests
-        run: dotnet test --no-build --configuration Release
-
+        run: dotnet test WebApplication02.Tests/WebApplication02.Tests.csproj --no-build --configuration Release
 
   # ==========================
   # CI - Build and Push Image
