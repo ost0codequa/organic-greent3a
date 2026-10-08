@@ -104,7 +104,7 @@ jobs:
 
       - name: Set OpenShift project
         run: |
-          kubectl project ${{ env.OPENSHIFT_NAMESPACE }}
+          oc project organicgreentea-dev
 
       - name: Update deployment image
         run: |
